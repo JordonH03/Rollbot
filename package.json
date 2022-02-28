@@ -1,0 +1,25 @@
+{
+  "name": "rollbot",
+  "version": "1.0.0",
+  "description": "Discord bot for rolling dice.",
+  "main": "index.js",
+  "dependencies": {
+    "@discordjs/builders": "^0.12.0",
+    "@discordjs/rest": "^0.3.0",
+    "chalk": "^5.0.0",
+    "consola": "^2.15.3",
+    "discord-api-types": "^0.27.3",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0",
+    "glob": "^7.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jordon Hong",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.10.0"
+  }
+}
