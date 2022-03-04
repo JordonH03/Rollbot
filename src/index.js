@@ -5,18 +5,6 @@ const { token } = require('../config.json');
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
-// Create an array containing the names of the event files 
-const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
-
-for (const file of eventFiles) {
-	const event = require(`./events/${file}`);
-	if (event.once) {
-		client.once(event.name, (...args) => event.execute(...args));
-	} else {
-		client.on(event.name, (...args) => event.execute(...args));
-	}
-}
-
 // Create a new collection of command names
 client.commands = new Collection();
 
@@ -31,6 +19,18 @@ for (const file of commandFiles) {
 	client.commands.set(command.data.name, command);
 }
 
+// Create an array containing the names of the event files 
+const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
+
+for (const file of eventFiles) {
+	const event = require(`./events/${file}`);
+	if (event.once) {
+		client.once(event.name, (...args) => event.execute(...args));
+	} else {
+		// client.on(event.name, (...args) => console.log(...args));
+		client.on(event.name, (...args) => event.execute(...args));
+	}
+}
 
 // Login to Discord with your client's token
 client.login(token);
