@@ -11,12 +11,16 @@ client.commands = new Collection();
 // Get an array of command files
 const commandFiles = fs.readdirSync('../data/commands').filter(file => file.endsWith('.js'));
 
-
 // Set a new item in the Collection
 // With the key as the command name and the value as the exported module
 for (const file of commandFiles) {
 	const command = require(`../data/commands/${file}`);
 	client.commands.set(command.data.name, command);
+}
+
+module.exports = {
+	name: 'client',
+	client
 }
 
 // Create an array containing the names of the event files 
@@ -27,7 +31,6 @@ for (const file of eventFiles) {
 	if (event.once) {
 		client.once(event.name, (...args) => event.execute(...args));
 	} else {
-		// client.on(event.name, (...args) => console.log(...args));
 		client.on(event.name, (...args) => event.execute(...args));
 	}
 }
