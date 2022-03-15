@@ -11,7 +11,7 @@ module.exports = {
 			client.user.setPresence({
 				status: PresenceUpdateStatus.Online,
 				afk: false,
-				activities: [{name: '/help', type: ActivityType.Listening}]
+				activities: [{name: '/d20', type: ActivityType.Listening}]
 			})
 		} else {
 			console.log(`${user} on ${client} was null`)
