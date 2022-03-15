@@ -6,12 +6,12 @@ const toString = require('../functions/toString.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('d4')
-		.setDescription('Roll some d4!')
+		.setName('d100')
+		.setDescription('Roll some d100!')
         .setDefaultPermission(true)
         .addIntegerOption(option => 
             option.setName('quantity')
-            .setDescription('Number of d4 to roll.')
+            .setDescription('Number of d100 to roll.')
             .setMinValue(1)
         )
         .addIntegerOption(option => 
@@ -41,10 +41,10 @@ module.exports = {
         
         // Rolls the dice
         const rolls = [];
-        roll(numRolls, 4, rolls, REROLL_ONE);
+        roll(numRolls, 100, rolls, REROLL_ONE);
 
         // Create a string message describing the roll and options
-        let message = `Rolling ${numRolls}d4`;
+        let message = `Rolling ${numRolls}d100`;
         if (add !== 0) message += ` + (${add})`;
         if (REROLL_ONE) message += ', rerolling 1s';
         if (DROP_ROLL) {

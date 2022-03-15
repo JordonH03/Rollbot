@@ -59,7 +59,7 @@ module.exports = {
         const total = sum(rolls, add);
 
         await interaction.editReply({
-            content: `${message}: \n ${rollString} + (${add}) = ${total}`,
+            content: `${message}: \n ${rollString} + (${add}) = **${total}**`,
         });
 	},
 };
