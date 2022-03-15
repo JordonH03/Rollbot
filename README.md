@@ -4,8 +4,6 @@ A discord bot that rolls dice.
 
 ## Commands
 
----
-
 **d4, d6, d8, d10, d12, d20, d100:** Sums random integers from 1 to the number indicated in the command name.
 
 ### Options
